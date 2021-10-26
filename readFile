@@ -45,8 +45,6 @@ with open('input_data.txt', newline='') as csvfile:
         print('\n'.join(row))
         print(Counter(row))
 
-for i in range (2):
-  print("hello")
 produce an output with list of words in doc w/ computed num times it appears in the file
 e g 
 Word,Count
