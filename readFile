@@ -1,0 +1,63 @@
+#import csv
+from collections import Counter
+
+
+def readFile(fileName):
+    print("Word count:")
+    fileObj = open(fileName, "r")  #opens the file in read mode
+    words = fileObj.read().split()  #puts the file into an array
+    fileObj.close()
+    #result = map(Counter, words)
+    #print(list(result))
+    #tempArr = []
+    length = len(words)
+    i = 0
+    #temp = words[i]
+    j = 0
+    while i < length:
+        num = 0
+        temp = words[i]
+
+        for x in words:
+            if x == temp:
+                num += 1
+                remove = words.index(x)
+                words.pop(remove)
+                i = 0
+                length -= 1
+                #print(words)
+            else:
+                i += 1
+        print(temp + ",", num)
+    print(words)
+    return words
+
+
+readFile('input_data.txt')
+"""
+
+with open('input_data.txt', newline='') as csvfile:
+    reader = csv.reader(csvfile, delimiter=' ', quotechar='|')
+    words = reader.read().splitlines() #puts the file into an array
+
+    #print(Counter(reader))
+    for row in reader:
+        print('\n'.join(row))
+        print(Counter(row))
+
+for i in range (2):
+  print("hello")
+produce an output with list of words in doc w/ computed num times it appears in the file
+e g 
+Word,Count
+apple,1
+banana,2
+cedar,1
+dog,1
+elephant,2
+fox,1
+also write a python script that can be invoked with a single input arguement that provides the path to an input text file
+should be invokeable as:
+$ python exercise.py input_data.txt
+
+"""
